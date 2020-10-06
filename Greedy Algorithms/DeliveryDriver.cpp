@@ -9,12 +9,12 @@ bool DeliveryDriver()
 	while (true)
 	{
 		cout << "Generating job table..." << endl;
-		for (int i = 0; i < jobTable.size(); i++)
-			jobTable[i].ReGenerateItem();
 		cout << "Job Table: (ID, fee, due)" << endl;
-
 		for (int i = 0; i < jobTable.size(); i++)
+		{
+			jobTable[i].ReGenerateItem();
 			cout << i << "   " << jobTable[i].fee << "   " << jobTable[i].due << endl;
+		}
 
 		cout << "Money made " << FindNextJob(&jobTable, 0) << endl;
 

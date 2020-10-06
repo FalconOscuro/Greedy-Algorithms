@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DeliveryDriver.cpp" />
+    <ClCompile Include="InventoryManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="VendingMachine.cpp" />
   </ItemGroup>

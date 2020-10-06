@@ -8,7 +8,7 @@ void main()
 
 	while (running)
 	{
-		cout << "Please pick a program to run (1 - The vending machine, 2 - Delivery driver)   ";
+		cout << "Please pick a program to run (1 - The vending machine, 2 - Delivery driver, 3 - Inventory Manager)   ";
 		cin >> choice;
 		cout << endl;
 
@@ -17,6 +17,9 @@ void main()
 
 		else if (choice == 2)
 			running = DeliveryDriver();
+
+		else if (choice == 3)
+			running = InventoryManager();
 
 		else
 			cout << "Invalid input, please try again" << endl;

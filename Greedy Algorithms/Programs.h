@@ -49,10 +49,10 @@ struct Item
 
 	bool canBeHeld;
 
-	//void ReGenerateItem();
+	void ReGenerateItem();
 };
 
-//bool InventoryManager();
+bool InventoryManager();
 
-//int FindNextItem(vector<Item>*, int, int);
+int FindNextItem(vector<Item>*, int, int);
 
