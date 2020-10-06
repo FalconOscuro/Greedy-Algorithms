@@ -2,10 +2,15 @@
 
 bool DeliveryDriver()
 {
+	vector<Job> jobTable;
+	for (int i = 0; i < 12; i++)
+		jobTable.push_back(Job());
+
 	while (true)
 	{
 		cout << "Generating job table..." << endl;
-		vector<Job> jobTable = MakeJobTable(12);
+		for (int i = 0; i < jobTable.size(); i++)
+			jobTable[i].ReGenerateItem();
 		cout << "Job Table: (ID, fee, due)" << endl;
 
 		for (int i = 0; i < jobTable.size(); i++)
@@ -24,23 +29,6 @@ bool DeliveryDriver()
 		else if (choice == 'd' || choice == 'D')
 			return true;
 	}
-}
-
-vector<Job> MakeJobTable(const int tableSize)
-{
-	vector<Job> jobTable;
-	Job newJob;
-
-	for (int i = 0; i < tableSize; i++)
-	{
-		newJob.fee = rand() % 51;
-		newJob.due = rand() % 8 + 1;
-		newJob.done = false;
-
-		jobTable.push_back(newJob);
-	}
-
-	return jobTable;
 }
 
 int FindNextJob(vector<Job>* jobTable, int time)
@@ -77,4 +65,11 @@ int FindNextJob(vector<Job>* jobTable, int time)
 	jobTable->operator[](bestJobID).done == true;
 
 	return jobTable->operator[](bestJobID).fee + FindNextJob(jobTable, time+1);
+}
+
+void Job::ReGenerateItem()
+{
+	fee = rand() % 51;
+	due = rand() % 8 + 1;
+	done = false;
 }
